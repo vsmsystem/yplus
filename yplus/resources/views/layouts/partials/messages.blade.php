@@ -1,10 +1,10 @@
 @if(isset ($errors) && count($errors) > 0)
 <div class="alert alert-warning" role="alert">
-  <ul class="list-unstyled mb-0">
+  <div>
     @foreach($errors->all() as $error)
-    <li>{{ $error }}</li>
+    <div>{{ $error }}</div>
     @endforeach
-  </ul>
+  </div>
 </div>
 @endif
 
