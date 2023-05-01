@@ -20,7 +20,7 @@ class LogoutController extends Controller
         Auth::guard('admin')->logout();
         $request->session()->flush();
         $request->session()->regenerate();
-        return redirect()->guest(route('/admin'));
+        return redirect()->guest(route('login'));
 
         auth()->guard('web')->logout();
         $request->session()->invalidate();
