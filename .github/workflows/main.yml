@@ -15,7 +15,7 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: richard-dobbs.dreamhost.com
-        username: etcectetc
+        username: dh_a68y5m
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./api/
-        server-dir: /api.vsmsystem.com/
+        local-dir: ./yplus/
+        server-dir: ~/
