@@ -27,9 +27,9 @@
     @endif
   </div>
 
-  <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button><br>
-  <a class="w-100 btn btn-lg btn-primary" href="{{ route('social.login',['provider'=>'google']) }}">Google+</a><br>
-  <a class="w-100 btn btn-lg btn-primary" href="{{ route('social.login',['provider'=>'facebook']) }}">Facebook</a><br>
+  <button class="mb-1 w-100 btn btn-lg btn-primary" type="submit">Login</button><br>
+  <a class="mb-1 w-100 btn btn-lg btn-primary" href="{{ route('social.login',['provider'=>'google']) }}">Google+</a><br>
+  <a class="mb-1 w-100 btn btn-lg btn-primary" href="{{ route('social.login',['provider'=>'facebook']) }}">Facebook</a><br>
 
   @include('auth.partials.copy')
 </form>
