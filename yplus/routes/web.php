@@ -21,6 +21,7 @@ Route::get('/mail', function () {
 
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/', 'HomeController@index')->name('home.index');
+    Route::get('/yteste', 'HomeController@yteste')->name('home.yteste');
     Route::group(['middleware' => ['guest']], function () {
         Route::get('/login/{provider}', 'LoginController@redirectToProvider')->name('social.login');
         Route::get('/login/{provider}/callback', 'LoginController@handleProviderCallback')->name('social.callback');
