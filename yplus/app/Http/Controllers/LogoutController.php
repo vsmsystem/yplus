@@ -17,12 +17,12 @@ class LogoutController extends Controller
     public function perform(Request $request)
     {
 
-        Auth::guard('admin')->logout();
-        $request->session()->flush();
-        $request->session()->regenerate();
-        return redirect()->guest(route('login'));
+        //Auth::guard('admin')->logout();
+        //$request->session()->flush();
+        //$request->session()->regenerate();
+        //return redirect()->guest(route('login'));
 
-        auth()->guard('web')->logout();
+        //auth()->guard('web')->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         Session::flush();
