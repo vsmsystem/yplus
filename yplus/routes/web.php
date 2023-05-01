@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Route;
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/mail', function () {
+    Mail::send('mail.exemplo', ["nome" => "Valdecir"], function ($m) {
+        $m->from('yplus@vsmsystem.com');
+        $m->to('valdecir.merli@gmail.com');
+        $m->subject('Testando o laravel');
+    });
+});
+
+
+//Route::get('/login/{provider}', 'Auth\LoginController@redirectToProvider')->name('social.login');
+//Route::get('/login/{provider}/callback', 'Auth\LoginController@handleProviderCallback')->name('social.callback');
+
+Route::group(['namespace' => 'App\Http\Controllers'], function () {
+    Route::get('/', 'HomeController@index')->name('home.index');
+    Route::group(['middleware' => ['guest']], function () {
+        Route::get('/login/{provider}', 'LoginController@redirectToProvider')->name('social.login');
+        Route::get('/login/{provider}/callback', 'LoginController@handleProviderCallback')->name('social.callback');
+        Route::get('/register', 'RegisterController@show')->name('register.show');
+        Route::post('/register', 'RegisterController@register')->name('register.perform');
+        Route::get('/login', 'LoginController@show')->name('login.show');
+        Route::post('/login', 'LoginController@login')->name('login.perform');
+    });
+
+    Route::group(['middleware' => ['auth']], function () {
+        Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
+    });
+});

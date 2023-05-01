@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+  yplus_laravel:
+    build:
+      context: .
+      target: php-base
+    volumes:
+      - ./mycert.crt:/etc/ssl/certs/mycert.crt
+      - ./mycert.key:/etc/ssl/private/mycert.key
+      - ./:/var/www/
+    ports:
+      - "7820:80"
+      - "7821:443"
+    networks:
+      - yplus_network
+
+  yplus_laravel_db:
+    image: mysql:8.0
+    container_name: yplus_laravel_db
+    environment:
+      - MYSQL_DATABASE=proficio_yplus
+      - MYSQL_ROOT_PASSWORD=y!plus009
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "7826:3306"
+    networks:
+      - yplus_network
+
+volumes:
+  db_data:
+    driver: local
+
+networks:
+  yplus_network:
