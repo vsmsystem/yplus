@@ -17,7 +17,7 @@
   </div>
 
   <div class="form-group form-floating mb-3">
-    <input type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="Username" required="required" autofocus>
+    <input type="text" class="form-control" name="name" value="{{ old('username') }}" placeholder="Username" required="required" autofocus>
     <label for="floatingName">Username</label>
     @if ($errors->has('username'))
     <span class="text-danger text-left">{{ $errors->first('username') }}</span>
