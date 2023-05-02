@@ -4,10 +4,11 @@
 <div class="bg-light p-5 rounded">
   @auth
   <h1>Dashboard</h1>
+  <img width="50px" src="{{ $avatarUrl }}" alt="Avatar">
   <p class="lead">
 
     @if (auth()->check())
-  <p>JWT</p>
+  <p>JWT Sessão</p>
   <p>{{ session('tokenJWT') }}</p>
   <p>Usuário:</p>
   <p>{{ auth()->user() }}!</p>
