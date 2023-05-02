@@ -7,7 +7,9 @@
   <p class="lead">
 
     @if (auth()->check())
+  <p>JWT</p>
   <p>{{ auth()->user()->tokens()->latest()->first()->plainTextToken }}</p>
+  <p>Usuário:</p>
   <p>Bem-vindo, {{ auth()->user() }}!</p>
   @endif
 
