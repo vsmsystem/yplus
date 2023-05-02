@@ -46,7 +46,7 @@ class LoginController extends Controller
 
         Auth::login($user);
         $token = $user->createToken('authToken')->plainTextToken;
-        $tokenJWT = $user->createToken('JWT');
+        $tokenJWT = $user->createToken('JWT')->plainTextToken;
 
         // return redirect($this->redirectTo);
         //return redirect()->intended();
