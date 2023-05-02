@@ -7,7 +7,7 @@
   <p class="lead">
 
     @if (auth()->check())
-  <p>{{ $user->tokens()->latest()->first()->plainTextToken; }}</p>
+  <p>{{ auth()->user()->tokens()->latest()->first()->plainTextToken }}</p>
   <p>Bem-vindo, {{ auth()->user() }}!</p>
   @endif
 
