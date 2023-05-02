@@ -4,7 +4,7 @@
 <div class="bg-light p-5 rounded">
   @auth
   <h1>Dashboard</h1>
-  <img width="50px" src="{{ $avatarUrl }}" alt="Avatar">
+  <img width="50px" src="{{ $avatar }}" alt="Avatar">
   <p class="lead">
 
     @if (auth()->check())
