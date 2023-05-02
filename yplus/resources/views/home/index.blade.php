@@ -8,9 +8,9 @@
 
     @if (auth()->check())
   <p>JWT</p>
-  <p>{{ auth()->user()->tokens()->latest()->first()->plainTextToken }}</p>
+  <p>{{ session('tokenJWT') }}</p>
   <p>Usuário:</p>
-  <p>Bem-vindo, {{ auth()->user() }}!</p>
+  <p>{{ auth()->user() }}!</p>
   @endif
 
   Only authenticated users can access this section.</p>

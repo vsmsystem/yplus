@@ -50,7 +50,9 @@ class LoginController extends Controller
 
         // return redirect($this->redirectTo);
         //return redirect()->intended();
-        return redirect('/')->header('ABT', 'Bearer ' . $tokenJWT);
+        return redirect('/')
+            ->header('Authorization', 'Bearer ' . $tokenJWT)
+            ->with('tokenJWT', $tokenJWT);
     }
 
 
