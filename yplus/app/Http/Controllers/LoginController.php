@@ -47,11 +47,10 @@ class LoginController extends Controller
         Auth::login($user);
         $token = $user->createToken('authToken')->plainTextToken;
         $tokenJWT = $user->createToken('JWT')->plainTextToken;
-        $avatar = $providerUser->getAvatar();
 
         // return redirect($this->redirectTo);
         //return redirect()->intended();
-        return redirect('/', ["avatar" => $avatar])
+        return redirect('/')
             ->header('Authorization', 'Bearer ' . $tokenJWT)
             ->with('tokenJWT', $tokenJWT);
     }

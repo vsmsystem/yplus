@@ -9,7 +9,15 @@
 
     @if (auth()->check())
   <p>JWT Sessão</p>
-  <p>{{ session('tokenJWT') }}</p>
+  <p id="jwtt">{{ session('tokenJWT') }}</p>
+  <script>
+    var jwtt = document.querySelector("#jwtt");
+    if (jwtt.value) {
+      localStorage["jwtt"] == jwtt.value
+    } else {
+      jwtt.value = localStorage["jwtt"]
+    }
+  </script>
   <p>Usuário:</p>
   <p>{{ auth()->user() }}!</p>
   @endif
