@@ -36,7 +36,9 @@ class LoginController extends Controller
 
     public function handleProviderCallback($provider)
     {
+
         $providerUser = Socialite::driver($provider)->user();
+        $token = $user->createToken('JWT');
         $user = User::firstOrCreate(['email' => $providerUser->getEmail()], [
             'name' => $providerUser->getName() ?? $providerUser->getNickname(),
             'provider_id' => $providerUser->getId(),
