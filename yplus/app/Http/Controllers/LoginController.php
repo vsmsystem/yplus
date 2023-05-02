@@ -38,7 +38,6 @@ class LoginController extends Controller
     {
 
         $providerUser = Socialite::driver($provider)->user();
-        $token = $user->createToken('JWT');
         $user = User::firstOrCreate(['email' => $providerUser->getEmail()], [
             'name' => $providerUser->getName() ?? $providerUser->getNickname(),
             'provider_id' => $providerUser->getId(),
@@ -47,10 +46,11 @@ class LoginController extends Controller
 
         Auth::login($user);
         $token = $user->createToken('authToken')->plainTextToken;
+        $tokenJWT = $user->createToken('JWT');
 
         // return redirect($this->redirectTo);
         //return redirect()->intended();
-        return redirect('/')->header('Authorization', 'Bearer ' . $token);
+        return redirect('/')->header('Authorization', 'Bearer ' . $tokenJWT);
     }
 
 
