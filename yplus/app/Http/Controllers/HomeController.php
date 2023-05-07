@@ -14,4 +14,9 @@ class HomeController extends Controller
     {
         return view('home.yteste');
     }
+
+    public function dashboard()
+    {
+        return view('home.dashboard');
+    }
 }

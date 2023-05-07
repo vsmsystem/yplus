@@ -37,6 +37,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::group(['middleware' => ['auth']], function () {
         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
         Route::get('/yteste', 'HomeController@yteste')->name('home.yteste');
+        Route::get('/dashboard', 'HomeController@dashboard')->name('home.dashboard');
         Route::resource('/produto', 'ProdutoController');
     });
 });

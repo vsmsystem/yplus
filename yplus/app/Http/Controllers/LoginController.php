@@ -50,7 +50,7 @@ class LoginController extends Controller
 
         // return redirect($this->redirectTo);
         //return redirect()->intended();
-        return redirect('/')
+        return redirect('/dashboard')
             ->header('Authorization', 'Bearer ' . $tokenJWT)
             ->with('tokenJWT', $tokenJWT);
     }
@@ -58,6 +58,7 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
-        return redirect()->intended();
+        //return redirect()->intended();
+        return redirect('/dashboard');
     }
 }
