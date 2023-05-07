@@ -10,13 +10,14 @@
   <title>Yplus</title>
 
   <!-- Bootstrap CSS -->
-  <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
   <!-- bootstrap theme -->
-  <link href="{{ url('css/bootstrap-theme.css') }}" rel="stylesheet">
+  <link href="css/bootstrap-theme.css" rel="stylesheet">
   <!--external css-->
   <!-- font icon -->
   <link href="css/elegant-icons-style.css" rel="stylesheet" />
-  <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="assets/font-awesome/css/font-awesome47.min.css" rel="stylesheet" />
   <!-- full calendar css-->
   <link href="assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
   <!-- easy pie chart-->
@@ -38,7 +39,52 @@
     <![endif]-->
 
   <style>
+    body {
+      max-width: 100%;
+      overflow-x: hidden !important;
+    }
 
+    .largebtn {
+      height: auto;
+    }
+
+
+    /* custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 20px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #777;
+      border-radius: 20px;
+      border: 6px solid transparent;
+      background-clip: content-box;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: #a8bbbf;
+    }
+
+    @media (max-width: 767px) {
+      body {
+        overflow: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding-bottom: 50px !important;
+      }
+
+      .bottom-nav {
+        display: block !important;
+      }
+
+      .largebtn {
+        height: 40px;
+        font-size: 18px;
+      }
+    }
   </style>
   <script>
 
@@ -655,10 +701,10 @@
             <div class="row">
               <div class="col-lg-3 col-sm-6">
                 <section class="custom-panel">
-                  <button type="button" class="btn btn-info btn-xs btn-block"> + Compra
+                  <button type="button" class="btn btn-info btn-xs btn-block largebtn"> + Compra
                     Mercado</button>
-                  <button type="button" class="btn btn-info btn-xs btn-block">+ Compra Geral</button>
-                  <button type="button" class="btn btn-info btn-xs btn-block">+ Outras
+                  <button type="button" class="btn btn-info btn-xs btn-block largebtn">+ Compra Geral</button>
+                  <button type="button" class="btn btn-info btn-xs btn-block largebtn">+ Outras
                     Despesas</button>
                 </section>
               </div>
@@ -890,196 +936,203 @@
                 </table>
               </section>
             </div>
+          </div>
         </section>
 
 
+        <div class="row">
 
-        <div class="col-lg-4">
-          <!--project team start-->
-          <section class="panel">
-            <div class="panel-body project-team">
-              <div class="task-progress">
-                <h1>Project Team</h1>
-              </div>
-            </div>
-            <table class="table table-hover personal-task">
-              <tbody>
-                <tr>
-                  <td>
-                    <span class="profile-ava">
-                      <img alt="" class="simple" src="img/avatar1_small.jpg">
-                    </span>
-                  </td>
-                  <td>
-                    <p class="profile-name">John Doe</p>
-                    <p class="profile-occupation">UX Designer</p>
-                  </td>
-                  <td>
-                    <span class="badge bg-important">75%</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="profile-ava">
-                      <img alt="" class="simple" src="img/avatar-mini.jpg">
-                    </span>
-                  </td>
-                  <td>
-                    <p class="profile-name">Rena Rios</p>
-                    <p class="profile-occupation">UX Designer</p>
-                  </td>
-                  <td>
-                    <span class="badge bg-success">43%</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="profile-ava">
-                      <img alt="" class="simple" src="img/avatar-mini2.jpg">
-                    </span>
-                  </td>
-                  <td>
-                    <p class="profile-name">Robin Mathis</p>
-                    <p class="profile-occupation">UX Designer</p>
-                  </td>
-                  <td>
-                    <span class="badge bg-info">67%</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="profile-ava">
-                      <img alt="" class="simple" src="img/avatar-mini3.jpg">
-                    </span>
-                  </td>
-                  <td>
-                    <p class="profile-name">Bennie Gilliam</p>
-                    <p class="profile-occupation">UX Designer</p>
-                  </td>
-                  <td>
-                    <span class="badge bg-warning">30%</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="profile-ava">
-                      <img alt="" class="simple" src="img/avatar-mini4.jpg">
-                    </span>
-                  </td>
-                  <td>
-                    <p class="profile-name">Eddy Wilcox</p>
-                    <p class="profile-occupation">UX Designer</p>
-                  </td>
-                  <td>
-                    <span class="badge bg-primary">15%</span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
-          <!--Project Team end-->
-        </div>
 
-        <div class="col-lg-8">
-          <!--Project Activity start-->
-          <section class="panel">
-            <div class="panel-body progress-panel">
-              <div class="row">
-                <div class="col-lg-8 task-progress pull-left">
-                  <h1>Project Activity</h1>
-                </div>
-                <div class="col-lg-4">
-                  <span class="profile-ava pull-right">
-                    <img alt="" class="simple" src="img/avatar1_small.jpg">
-                    John Doe
-                  </span>
+
+
+          <div class="col-lg-4">
+            <!--project team start-->
+            <section class="panel">
+              <div class="panel-body project-team">
+                <div class="task-progress">
+                  <h1>Project Team</h1>
                 </div>
               </div>
-            </div>
-            <table class="table table-hover personal-task">
-              <tbody>
-                <tr>
-                  <td>Today</td>
-                  <td>
-                    Project SRS.
-                  </td>
-                  <td>
-                    <span class="badge bg-important">Upload</span>
-                  </td>
-                  <td>
-                    <span class="profile-ava">
+              <table class="table table-hover personal-task">
+                <tbody>
+                  <tr>
+                    <td>
+                      <span class="profile-ava">
+                        <img alt="" class="simple" src="img/avatar1_small.jpg">
+                      </span>
+                    </td>
+                    <td>
+                      <p class="profile-name">John Doe</p>
+                      <p class="profile-occupation">UX Designer</p>
+                    </td>
+                    <td>
+                      <span class="badge bg-important">75%</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="profile-ava">
+                        <img alt="" class="simple" src="img/avatar-mini.jpg">
+                      </span>
+                    </td>
+                    <td>
+                      <p class="profile-name">Rena Rios</p>
+                      <p class="profile-occupation">UX Designer</p>
+                    </td>
+                    <td>
+                      <span class="badge bg-success">43%</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="profile-ava">
+                        <img alt="" class="simple" src="img/avatar-mini2.jpg">
+                      </span>
+                    </td>
+                    <td>
+                      <p class="profile-name">Robin Mathis</p>
+                      <p class="profile-occupation">UX Designer</p>
+                    </td>
+                    <td>
+                      <span class="badge bg-info">67%</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="profile-ava">
+                        <img alt="" class="simple" src="img/avatar-mini3.jpg">
+                      </span>
+                    </td>
+                    <td>
+                      <p class="profile-name">Bennie Gilliam</p>
+                      <p class="profile-occupation">UX Designer</p>
+                    </td>
+                    <td>
+                      <span class="badge bg-warning">30%</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="profile-ava">
+                        <img alt="" class="simple" src="img/avatar-mini4.jpg">
+                      </span>
+                    </td>
+                    <td>
+                      <p class="profile-name">Eddy Wilcox</p>
+                      <p class="profile-occupation">UX Designer</p>
+                    </td>
+                    <td>
+                      <span class="badge bg-primary">15%</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <!--Project Team end-->
+          </div>
+
+
+          <div class="col-lg-8">
+            <!--Project Activity start-->
+            <section class="panel">
+              <div class="panel-body progress-panel">
+                <div class="row">
+                  <div class="col-lg-8 task-progress pull-left">
+                    <h1>Project Activity</h1>
+                  </div>
+                  <div class="col-lg-4">
+                    <span class="profile-ava pull-right">
                       <img alt="" class="simple" src="img/avatar1_small.jpg">
+                      John Doe
                     </span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Yesterday</td>
-                  <td>
-                    Project Design Task
-                  </td>
-                  <td>
-                    <span class="badge bg-success">Task</span>
-                  </td>
-                  <td>
-                    <div id="work-progress2"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>21.10.13</td>
-                  <td>
-                    Generate Invoice
-                  </td>
-                  <td>
-                    <span class="badge bg-success">Task</span>
-                  </td>
-                  <td>
-                    <div id="work-progress3"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>22.10.13</td>
-                  <td>
-                    Project Testing
-                  </td>
-                  <td>
-                    <span class="badge bg-primary">To-Do</span>
-                  </td>
-                  <td>
-                    <span class="profile-ava">
-                      <img alt="" class="simple" src="img/avatar1_small.jpg">
-                    </span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>24.10.13</td>
-                  <td>
-                    Project Release Date
-                  </td>
-                  <td>
-                    <span class="badge bg-info">Milestone</span>
-                  </td>
-                  <td>
-                    <div id="work-progress4"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>28.10.13</td>
-                  <td>
-                    Project Release Date
-                  </td>
-                  <td>
-                    <span class="badge bg-primary">To-Do</span>
-                  </td>
-                  <td>
-                    <div id="work-progress5"></div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
-          <!--Project Activity end-->
+                  </div>
+                </div>
+              </div>
+              <table class="table table-hover personal-task">
+                <tbody>
+                  <tr>
+                    <td>Today</td>
+                    <td>
+                      Project SRS.
+                    </td>
+                    <td>
+                      <span class="badge bg-important">Upload</span>
+                    </td>
+                    <td>
+                      <span class="profile-ava">
+                        <img alt="" class="simple" src="img/avatar1_small.jpg">
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Yesterday</td>
+                    <td>
+                      Project Design Task
+                    </td>
+                    <td>
+                      <span class="badge bg-success">Task</span>
+                    </td>
+                    <td>
+                      <div id="work-progress2"></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>21.10.13</td>
+                    <td>
+                      Generate Invoice
+                    </td>
+                    <td>
+                      <span class="badge bg-success">Task</span>
+                    </td>
+                    <td>
+                      <div id="work-progress3"></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>22.10.13</td>
+                    <td>
+                      Project Testing
+                    </td>
+                    <td>
+                      <span class="badge bg-primary">To-Do</span>
+                    </td>
+                    <td>
+                      <span class="profile-ava">
+                        <img alt="" class="simple" src="img/avatar1_small.jpg">
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>24.10.13</td>
+                    <td>
+                      Project Release Date
+                    </td>
+                    <td>
+                      <span class="badge bg-info">Milestone</span>
+                    </td>
+                    <td>
+                      <div id="work-progress4"></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>28.10.13</td>
+                    <td>
+                      Project Release Date
+                    </td>
+                    <td>
+                      <span class="badge bg-primary">To-Do</span>
+                    </td>
+                    <td>
+                      <div id="work-progress5"></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <!--Project Activity end-->
+          </div>
         </div>
-        </div>
+
         <!-- project team & activity end -->
 
 
@@ -1415,135 +1468,134 @@
         <!-- timeline & chat end -->
 
         <!-- project team & activity start -->
+
+        <!-- calender & widgets start -->
         <div class="row">
+          <div class="col-lg-8">
+            <section class="panel">
+              <div class="panel-body">
+                <div id="calendar" class="has-toolbar"></div>
+              </div>
+            </section>
+          </div>
+          <div class="col-lg-4">
 
-          <!-- calender & widgets start -->
-          <div class="row">
-            <div class="col-lg-8">
-              <section class="panel">
+            <!--profile widget2 start-->
+            <section class="panel profile-nav alt">
+              <div class="profile-widget-img">
+                <div class="user-heading alt bg-layer ">
+                  <a href="#">
+                    <img alt="" src="img/profile-avatar.jpg">
+                  </a>
+                  <h1>John Fuller</h1>
+                  <p>johnf@karmanta.com</p>
+                </div>
+              </div>
+
+              <div class="weather-category profile-widget-data">
+                <ul>
+                  <li class="active">
+                    <h5>150</h5>
+                    Photos
+                  </li>
+                  <li>
+                    <h5>5400</h5>
+                    Following
+                  </li>
+                  <li>
+                    <h5>85000</h5>
+                    Followers
+                  </li>
+                </ul>
+              </div>
+            </section>
+            <!--profile widget2 end-->
+
+            <!--weather widget start-->
+            <section class="panel">
+              <div class="weather-bg-img">
                 <div class="panel-body">
-                  <div id="calendar" class="has-toolbar"></div>
-                </div>
-              </section>
-            </div>
-            <div class="col-lg-4">
-
-              <!--profile widget2 start-->
-              <section class="panel profile-nav alt">
-                <div class="profile-widget-img">
-                  <div class="user-heading alt bg-layer ">
-                    <a href="#">
-                      <img alt="" src="img/profile-avatar.jpg">
-                    </a>
-                    <h1>John Fuller</h1>
-                    <p>johnf@karmanta.com</p>
-                  </div>
-                </div>
-
-                <div class="weather-category profile-widget-data">
-                  <ul>
-                    <li class="active">
-                      <h5>150</h5>
-                      Photos
-                    </li>
-                    <li>
-                      <h5>5400</h5>
-                      Following
-                    </li>
-                    <li>
-                      <h5>85000</h5>
-                      Followers
-                    </li>
-                  </ul>
-                </div>
-              </section>
-              <!--profile widget2 end-->
-
-              <!--weather widget start-->
-              <section class="panel">
-                <div class="weather-bg-img">
-                  <div class="panel-body">
-                    <div class="row">
-                      <div class="col-xs-6">
-                        <h3>London</h3>
-                        <i class="icon-cloud"></i>
-                        <span>24/10/2013</span>
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <h3>London</h3>
+                      <i class="icon-cloud"></i>
+                      <span>24/10/2013</span>
+                    </div>
+                    <div class="col-xs-6">
+                      <div class="degree">
+                        20°
                       </div>
-                      <div class="col-xs-6">
-                        <div class="degree">
-                          20°
-                        </div>
-                        <div class="weather-type">
-                          Sunny
-                        </div>
+                      <div class="weather-type">
+                        Sunny
                       </div>
                     </div>
-                    <div class="weather-category">
-                      <ul>
-                        <li class="active">
-                          <h5>humidity</h5>
-                          56%
-                        </li>
-                        <li>
-                          <h5>precip</h5>
-                          1.50 in
-                        </li>
-                        <li>
-                          <h5>winds</h5>
-                          10 mph
-                        </li>
-                      </ul>
-                    </div>
                   </div>
-                </div>
-
-                <footer class="weather-days weather-bg-img">
-                  <ul>
-                    <li class="day1">
-                      <h5>Thu</h5>
-                      20°
-                    </li>
-                    <li class="day2">
-                      <h5>Fri</h5>
-                      22°
-                    </li>
-                    <li class="day3">
-                      <h5>Sat</h5>
-                      21°
-                    </li>
-                    <li class="day4">
-                      <h5>Sun</h5>
-                      24°
-                    </li>
-                    <li class="day5">
-                      <h5>Mon</h5>
-                      20°
-                    </li>
-                    <li class="day6">
-                      <h5>Wed</h5>
-                      20°
-                    </li>
-                  </ul>
-                </footer>
-              </section>
-              <!--weather widget end-->
-
-              <div class="panel">
-                <div class="panel-body">
-                  <div class="bio-chart">
-                    <input class="knob" data-width="101" data-height="101" data-displayPrevious=true data-thickness=".1" value="80" data-fgColor="#4cd964" data-bgColor="#e8e8e8">
-                  </div>
-                  <div class="bio-desk">
-                    <h4 class="terques">Project Progress</h4>
-                    <p>Started : 15 July</p>
-                    <p> : 15 August</p>
+                  <div class="weather-category">
+                    <ul>
+                      <li class="active">
+                        <h5>humidity</h5>
+                        56%
+                      </li>
+                      <li>
+                        <h5>precip</h5>
+                        1.50 in
+                      </li>
+                      <li>
+                        <h5>winds</h5>
+                        10 mph
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
 
+              <footer class="weather-days weather-bg-img">
+                <ul>
+                  <li class="day1">
+                    <h5>Thu</h5>
+                    20°
+                  </li>
+                  <li class="day2">
+                    <h5>Fri</h5>
+                    22°
+                  </li>
+                  <li class="day3">
+                    <h5>Sat</h5>
+                    21°
+                  </li>
+                  <li class="day4">
+                    <h5>Sun</h5>
+                    24°
+                  </li>
+                  <li class="day5">
+                    <h5>Mon</h5>
+                    20°
+                  </li>
+                  <li class="day6">
+                    <h5>Wed</h5>
+                    20°
+                  </li>
+                </ul>
+              </footer>
+            </section>
+            <!--weather widget end-->
+
+            <div class="panel">
+              <div class="panel-body">
+                <div class="bio-chart">
+                  <input class="knob" data-width="101" data-height="101" data-displayPrevious=true data-thickness=".1" value="80" data-fgColor="#4cd964" data-bgColor="#e8e8e8">
+                </div>
+                <div class="bio-desk">
+                  <h4 class="terques">Project Progress</h4>
+                  <p>Started : 15 July</p>
+                  <p> : 15 August</p>
+                </div>
+              </div>
             </div>
+
           </div>
-          <!-- calender & widgets end -->
+        </div>
+        <!-- calender & widgets end -->
 
 
 
@@ -1552,6 +1604,69 @@
     <!--main content end-->
   </section>
   <!-- container section start -->
+
+
+  <style>
+    .bottom-nav {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #313131;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+      box-sizing: border-box;
+    }
+
+    .bottom-nav ul {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 55px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .bottom-nav li {
+      list-style: none;
+    }
+
+    .bottom-nav button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      padding: 8px;
+      border: none;
+      background-color: transparent;
+      color: #ddd;
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .bottom-nav button i {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .bottom-nav button.active {
+      color: #00a8cc;
+    }
+  </style>
+  <nav class="bottom-nav">
+    <ul>
+      <li><button><i class="fa fa-home"></i><span>Home</span></button></li>
+      <li><button><i class="fa fa-gift"></i><span>Desejos</span></button></li>
+      <li><button><i class="fa fa-child"></i><span>Kids</span></button></li>
+      <li><button><i class="fa fa-plus"></i><span>Entrada</span></button></li>
+      <li><button><i class="fa fa-credit-card"></i><span>Saída</span></button></li>
+    </ul>
+  </nav>
 
   <!-- javascripts -->
   <script src="js/jquery.js"></script>
