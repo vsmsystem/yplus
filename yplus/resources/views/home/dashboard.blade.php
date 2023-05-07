@@ -7,7 +7,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <link rel="icon" href="img/favicon.ico" />
 
-  <title>Yplus Dashboard</title>
+  <title>Yplus</title>
 
   <!-- Bootstrap CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
