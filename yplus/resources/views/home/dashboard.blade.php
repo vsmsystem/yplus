@@ -401,7 +401,7 @@
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
               <span class="profile-ava">
-                <img alt="" src="{{ session('avatar') }}">
+                <img width="30px" alt="" src="{{ session('avatar') }}">
               </span>
               <span class="username">{{ session('name') }}</span>
               <b class="caret"></b>
