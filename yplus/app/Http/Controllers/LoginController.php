@@ -49,8 +49,8 @@ class LoginController extends Controller
         $tokenJWT = $user->createToken('JWT')->plainTextToken;
 
         $request->session()->put('tkyplus', $tokenJWT);
-        $request->session()->put('name', $providerUser->getNickname());
-        $request->session()->put('avatar', $providerUser->getName() ?? $providerUser->getNickname());
+        $request->session()->put('name', $providerUser->getName() ?? $providerUser->getNickname());
+        $request->session()->put('avatar', $providerUser->getAvatar());
 
 
         // return redirect($this->redirectTo);
