@@ -50,7 +50,7 @@ class LoginController extends Controller
 
         $request->session()->put('tkyplus', $tokenJWT);
         $request->session()->put('name', $providerUser->getNickname());
-        $request->session()->put('avatar', $providerUser->getAvatar());
+        $request->session()->put('avatar', $providerUser->getName() ?? $providerUser->getNickname());
 
 
         // return redirect($this->redirectTo);
