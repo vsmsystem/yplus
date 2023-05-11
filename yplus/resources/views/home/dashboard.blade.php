@@ -631,14 +631,14 @@
               <div class="profile-widget profile-widget-img">
                 <div class="panel-body">
                   <div class="col-lg-4 col-sm-4 profile-widget-name">
-                    <h4>Valdecir Merli</h4>
+                    <h4>{{ session('name') }}</h4>
                     <div class="follow-ava">
-                      <img src="img/profile-widget-avatar.jpg" alt="">
+                      <img src="{{ session('avatar') }}" alt="">
                     </div>
                     <h6>Administrador</h6>
                   </div>
                   <div class="col-lg-8 col-sm-8 follow-info">
-                    <p>Olá Valdecir, você tem assuntos pendentes, confira.</p>
+                    <p>Olá {{ session('name') }}, você tem assuntos pendentes, confira.</p>
                     <p>@vsmsystem</p>
                     <h6>
                       <span><i class="icon_clock_alt"></i>11:05 AM</span>
