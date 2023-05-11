@@ -401,9 +401,9 @@
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
               <span class="profile-ava">
-                <img alt="" src="img/avatar1_small.jpg">
+                <img alt="" src="{{ session('avatar') }}">
               </span>
-              <span class="username">Valdecir Merli</span>
+              <span class="username">{{ session('name') }}</span>
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
