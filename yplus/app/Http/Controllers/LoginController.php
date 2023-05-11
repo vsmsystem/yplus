@@ -7,7 +7,7 @@ use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
-
+use Illuminate\Contracts\Session\Session;
 
 class LoginController extends Controller
 {
@@ -34,7 +34,7 @@ class LoginController extends Controller
         return redirect()->to($provider->getTargetUrl());
     }
 
-    public function handleProviderCallback($provider)
+    public function handleProviderCallback(Request $request, $provider)
     {
 
         $providerUser = Socialite::driver($provider)->user();
@@ -47,6 +47,7 @@ class LoginController extends Controller
         Auth::login($user);
         $token = $user->createToken('authToken')->plainTextToken;
         $tokenJWT = $user->createToken('JWT')->plainTextToken;
+        $request->session()->put('tkyplus', $tokenJWT);
 
         // return redirect($this->redirectTo);
         //return redirect()->intended();

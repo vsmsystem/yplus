@@ -93,6 +93,7 @@
 
 
 <body class="dark">
+  <div style="display:none" id="tkyplus">{{ session('tkyplus') }}</div>
   <!-- container section start -->
   <section id="container" class="">
     <!--header start-->
@@ -500,6 +501,13 @@
             <a class="" href="calendar.html">
               <i class="icon_calendar"></i>
               <span>Calendário</span>
+
+            </a>
+          </li>
+          <li>
+            <a class="" href="{{ route('logout.perform') }}">
+              <i class="s"></i>
+              <span>Logout</span>
 
             </a>
           </li>
