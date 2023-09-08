@@ -28,7 +28,7 @@
 
   @guest
   <h1>Homepage</h1>
-  <p class="lead">Your viewing the home page. Please login to view the restricted data.</p>
+  <p class="lead">Your viewing the home page. Please login to view the restricted data. (0.0.17)</p>
   @endguest
 </div>
 @endsection

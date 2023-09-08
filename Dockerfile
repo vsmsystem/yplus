@@ -15,7 +15,8 @@ RUN apt-get update -y && apt-get install -y vim ssh libpng-dev libmagickwand-dev
   && apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/
 
 # PHP Extensions - PECL
-RUN pecl install imagick memcached mcrypt-1.0.6 && docker-php-ext-enable imagick memcached mcrypt
+# RUN pecl install imagick memcached mcrypt-1.0.6 && docker-php-ext-enable imagick memcached mcrypt
+RUN pecl install imagick mcrypt-1.0.6 && docker-php-ext-enable imagick mcrypt
 
 # PHP Extensions - docker-php-ext-install
 RUN docker-php-ext-install zip gd mysqli exif pdo pdo_mysql opcache intl soap
