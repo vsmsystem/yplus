@@ -23,6 +23,7 @@ Route::get('/mail', function () {
 
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/', 'HomeController@index')->name('home.index');
+    Route::get('/carros', function(){return "nada ainda";} )->name('carros');
 
     Route::group(['middleware' => ['guest']], function () {
         Route::get('/login/{provider}', 'LoginController@redirectToProvider')->name('social.login');
