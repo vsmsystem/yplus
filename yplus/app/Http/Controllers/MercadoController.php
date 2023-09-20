@@ -110,7 +110,7 @@ class MercadoController extends Controller
         $item->marca = $request->input('marca');
 
         $item->save();
-        return redirect()->route('mercado.index')->with('sucess','Item atualizado com sucesso!');
+        return redirect()->route('mercado.index')->with('success','Item atualizado com sucesso!');
     }
 
     /**
