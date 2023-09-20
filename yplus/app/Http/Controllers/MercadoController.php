@@ -26,7 +26,7 @@ class MercadoController extends Controller
      */
     public function create()
     {
-        //
+        return view('mercado.create');
     }
 
     /**
@@ -37,7 +37,30 @@ class MercadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            // Define as regras de validação
+            $rules = [
+                'nome' => 'required', // O campo 'nome' é obrigatório
+                'qtd' => 'required|integer|min:1', // O campo 'qtd' é obrigatório e deve ser um número inteiro maior ou igual a 1
+                'marca' => 'nullable', // O campo 'marca' é opcional
+            ];
+        
+            // Mensagens de erro personalizadas (opcional)
+            $messages = [
+                'qtd.min' => 'A quantidade deve ser no mínimo 1.',
+            ];
+        
+            // Valide os dados do formulário com as regras definidas
+            $request->validate($rules, $messages);
+        
+            // Se a validação for bem-sucedida, você pode prosseguir com a inserção no banco de dados
+            // Por exemplo:
+            mercado::create([
+                'nome' => $request->input('nome'),
+                'quantidade' => $request->input('qtd'),
+                'marca' => $request->input('marca'),
+            ]);
+        
+        return redirect()->route('mercado.index');
     }
 
     /**

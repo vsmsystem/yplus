@@ -25,7 +25,9 @@ Route::get('/mail', function () {
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/', 'HomeController@index')->name('home.index');
     Route::get('/carros', function(){return view("home.yteste");} )->name('carros');
-    Route::get('/mercado', [MercadoController::class, "index"] )->name('mercado');
+    Route::get('/mercado', [MercadoController::class, "index"] )->name('mercado.index');
+    Route::get('/mercado/create', [MercadoController::class, "create"] )->name('mercado.create');
+    Route::post('/mercado/store', [MercadoController::class, "store"] )->name('mercado.store');
 
     Route::group(['middleware' => ['guest']], function () {
         Route::get('/login/{provider}', 'LoginController@redirectToProvider')->name('social.login');

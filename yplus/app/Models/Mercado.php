@@ -10,5 +10,5 @@ class Mercado extends Model
     use HasFactory;
 
     protected $table = 'mercado';
-    protected $fillable = ['nome', 'quantidade','marca','created_at', 'updated_at'];
+    protected $fillable = ['nome', 'quantidade','marca'];
 }

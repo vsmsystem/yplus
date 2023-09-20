@@ -29,6 +29,8 @@
 
                 </tbody>
             </table>
+            <a class="btn btn-primary" href="{{route('mercado.create')}}" >Adicionar</a>
+            
         </section>
     </div>
 </div>
