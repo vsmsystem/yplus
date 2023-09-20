@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MercadoController;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +24,8 @@ Route::get('/mail', function () {
 
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/', 'HomeController@index')->name('home.index');
-    Route::get('/carros', function(){return "nada ainda";} )->name('carros');
+    Route::get('/carros', function(){return view("home.yteste");} )->name('carros');
+    Route::get('/mercado', [MercadoController::class, "index"] )->name('mercado');
 
     Route::group(['middleware' => ['guest']], function () {
         Route::get('/login/{provider}', 'LoginController@redirectToProvider')->name('social.login');

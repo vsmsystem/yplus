@@ -514,7 +514,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="" href="mercado.html">
+                        <a class="" href="{{route('mercado')}}">
                             <i class="fa fa-shopping-cart"></i>
                             <span>Mercado</span>
 
