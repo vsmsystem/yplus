@@ -10,27 +10,27 @@
     <title>Yplus - @yield('title')</title>
 
     <!-- Bootstrap CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- bootstrap theme -->
-    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-theme.css') }}" rel="stylesheet">
     <!--external css-->
     <!-- font icon -->
-    <link href="css/elegant-icons-style.css" rel="stylesheet" />
-    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="assets/font-awesome/css/font-awesome47.min.css" rel="stylesheet" />
+    <link href="{{ asset('css/elegant-icons-style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/font-awesome/css/font-awesome47.min.css') }}" rel="stylesheet" />
     <!-- full calendar css-->
-    <link href="assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
+    <link href="{{ asset('assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css') }}" rel="stylesheet" />
     <!-- easy pie chart-->
-    <link href="assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css"
+    <link href="{{ asset('assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css') }}" rel="stylesheet" type="text/css"
         media="screen" />
     <!-- owl carousel -->
-    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}" type="text/css">
 
     <!-- Custom styles -->
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/style-responsive.css" rel="stylesheet" />
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style-responsive.css') }}" rel="stylesheet" />
 
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
     <!--[if lt IE 9]>
@@ -103,8 +103,8 @@
                 </div>
             </div>
 
-            <!--logo start-->
-            <a href="index.html" class="logo"><img src="img/Yplus-logo-sm.png"></a>
+            <!--logo start yplus/yplus.vsmsystem.com/img/Yplus-logo-sm.png-->
+            <a href="index.html" class="logo"><img src="{{ asset('img/Yplus-logo-sm.png') }}"></a>
             <!--logo end-->
 
             <div class="nav search-row" id="top_menu">
@@ -514,7 +514,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="" href="{{route('mercado')}}">
+                        <a class="" href="{{route('mercado.index')}}">
                             <i class="fa fa-shopping-cart"></i>
                             <span>Mercado</span>
 
