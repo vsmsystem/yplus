@@ -4,7 +4,7 @@
 
 <div class="row">
     @if(session('success'))
-    <div class="col-md-12"> 
+    <div class="col-sm-12"> 
         <div class="panel panel-info" data-collapsed="0">
             <div class="panel-heading">
                 <div>Pronto!</div> 
@@ -25,6 +25,7 @@
                         <th>Produto</th>
                         <th>Quantidade</th>
                         <th>Marca</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,10 +38,15 @@
                                 <td>{{$item->quantidade}}</td>
                                 <td>{{$item->marca}}</td>
                                 <td>
-                                    <form method="post" action="{{ route('mercado.delete', ['id' => $item->id]) }}">
+                                    <form method="post" style="display:inline" action="{{ route('mercado.delete', ['id' => $item->id]) }}">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                    </form>
+                                    <form method="post" style="display:inline" action="{{ route('mercado.edit', ['id' => $item->id]) }}">
+                                        @csrf
+                                        @method('PUT')
+                                        <button type="submit" class="btn btn-primary"><i class="fa fa-pencil"></i></button>
                                     </form>
                                 </td>
                             </tr>

@@ -9,9 +9,12 @@
             </header>
         <form method="post" action="{{ route('mercado.store') }}">
             @csrf
-            <input type="text" name="nome" id="nome" placeholder="Nome">
-            <input type="number" name="qtd" id="qtd" min="1" placeholder="Quantidade">
-            <input type="text" name="marca" id="marca" placeholder="Marca">            
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome">
+            <label for="qtd">Quantidade</label>
+            <input type="number" name="qtd" id="qtd" min="1">
+            <label for="marca">Marca</label>
+            <input type="text" name="marca" id="marca">            
             <button type="submit" class="btn btn-primary">Adicionar</button>
         </form>
         </section>

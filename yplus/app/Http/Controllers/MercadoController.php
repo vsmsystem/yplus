@@ -82,7 +82,12 @@ class MercadoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = Mercado::find($id);
+        if (!$item) {
+            return redirect()->route('mercado.index')->with('error', 'Item não encontrado.');
+        }
+    
+        return view('mercado.edit', ['item' => $item]);
     }
 
     /**
@@ -94,7 +99,18 @@ class MercadoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $item = Mercado::find($id);
+
+        if(!$item){
+            return redirect()->route('mercado.index')->with('error', 'Item não encontrado.');
+        }
+        //Atualizando campos do item
+        $item->nome = $request->input('nome');
+        $item->quantidade = $request->input('qtd');
+        $item->marca = $request->input('marca');
+
+        $item->save();
+        return redirect()->route('mercado.index')->with('sucess','Item atualizado com sucesso!');
     }
 
     /**
