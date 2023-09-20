@@ -24,13 +24,6 @@ Route::get('/mail', function () {
 
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/', 'HomeController@index')->name('home.index');
-    Route::get('/carros', function(){return view("home.yteste");} )->name('carros');
-    Route::get('/mercado', [MercadoController::class, "index"] )->name('mercado.index');
-    Route::get('/mercado/create', [MercadoController::class, "create"] )->name('mercado.create');
-    Route::post('/mercado/store', [MercadoController::class, "store"] )->name('mercado.store');
-    Route::delete('/mercado/delete/{id}', [MercadoController::class,"delete"] )->name('mercado.delete');
-    Route::put('/mercado/edit/{id}', [MercadoController::class,"edit"] )->name('mercado.edit');
-    Route::put('/mercado/update/{id}', [MercadoController::class,"update"] )->name('mercado.update');
 
     Route::group(['middleware' => ['guest']], function () {
         Route::get('/login/{provider}', 'LoginController@redirectToProvider')->name('social.login');
@@ -47,5 +40,12 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::get('/yteste', 'HomeController@yteste')->name('home.yteste');
         Route::get('/dashboard', 'HomeController@dashboard')->name('home.dashboard');
         Route::resource('/produto', 'ProdutoController');
+        Route::get('/carros', function(){return view("home.yteste");} )->name('carros');
+        Route::get('/mercado', [MercadoController::class, "index"] )->name('mercado.index');
+        Route::get('/mercado/create', [MercadoController::class, "create"] )->name('mercado.create');
+        Route::post('/mercado/store', [MercadoController::class, "store"] )->name('mercado.store');
+        Route::delete('/mercado/delete/{id}', [MercadoController::class,"delete"] )->name('mercado.delete');
+        Route::put('/mercado/edit/{id}', [MercadoController::class,"edit"] )->name('mercado.edit');
+        Route::put('/mercado/update/{id}', [MercadoController::class,"update"] )->name('mercado.update');
     });
 });
