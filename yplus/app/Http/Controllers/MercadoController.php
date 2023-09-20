@@ -60,7 +60,7 @@ class MercadoController extends Controller
                 'marca' => $request->input('marca'),
             ]);
         
-        return redirect()->route('mercado.index');
+        return redirect()->route('mercado.index')->with('success', 'Item adicionado com sucesso.');
     }
 
     /**
@@ -103,8 +103,13 @@ class MercadoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+       $item = Mercado::find($id);
+       if (!$item){
+        return redirect()->back()->with('error', 'Item não encontrado');
+       }
+       $item->delete();
+       return redirect()->route('mercado.index')->with('success', 'Item removido com sucesso.');
     }
 }

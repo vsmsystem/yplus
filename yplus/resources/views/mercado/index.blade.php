@@ -3,6 +3,17 @@
 @section('content')
 
 <div class="row">
+    @if(session('success'))
+    <div class="col-md-12"> 
+        <div class="panel panel-info" data-collapsed="0">
+            <div class="panel-heading">
+                <div>Pronto!</div> 
+                <p>{{ session('success') }}</p>
+            </div>
+        </div>
+    </div>
+    @endif
+
     <div class="col-sm-12">
         <section class="panel">
             <header class="panel-heading" style="font-weight: 900; font-size:18px">
@@ -19,11 +30,22 @@
                 <tbody>
 
                     @foreach ($itens as $item)
-                        <tr class="">
-                            <td>{{$item->nome}}</td>
-                            <td>{{$item->quantidade}}</td>
-                            <td>{{$item->marca}}</td>
-                        </tr>
+                        <div class="item">
+                            <!-- Exibir itens -->
+                            <tr class="">
+                                <td>{{$item->nome}}</td>
+                                <td>{{$item->quantidade}}</td>
+                                <td>{{$item->marca}}</td>
+                                <td>
+                                    <form method="post" action="{{ route('mercado.delete', ['id' => $item->id]) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+
+                        </div>
                     @endforeach
 
 

@@ -28,6 +28,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/mercado', [MercadoController::class, "index"] )->name('mercado.index');
     Route::get('/mercado/create', [MercadoController::class, "create"] )->name('mercado.create');
     Route::post('/mercado/store', [MercadoController::class, "store"] )->name('mercado.store');
+    Route::delete('/mercado/delete/{id}', [MercadoController::class,"delete"] )->name('mercado.delete');
 
     Route::group(['middleware' => ['guest']], function () {
         Route::get('/login/{provider}', 'LoginController@redirectToProvider')->name('social.login');
