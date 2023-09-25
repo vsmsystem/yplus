@@ -111,7 +111,7 @@
             </div>
 
             <!--logo start yplus/yplus.vsmsystem.com/img/Yplus-logo-sm.png-->
-            <a href="index.html" class="logo"><img src="{{ asset('img/Yplus-logo-sm.png') }}"></a>
+            <a href="{{route('home.dashboard')}}" class="logo"><img src="{{ asset('img/Yplus-logo-sm.png') }}"></a>
             <!--logo end-->
 
             <div class="nav search-row" id="top_menu">
@@ -417,7 +417,7 @@
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="profile-ava">
-                                <img width="30px" alt="" src="{{ session('avatar') }}">
+                                <img width="30px" alt="" src="{{ session('avatar') ?? asset('img/avatar-mini.jpg') }}">
                             </span>
                             <span class="username">{{ session('name') }}</span>
                             <b class="caret"></b>
@@ -460,7 +460,7 @@
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu">
                     <li class="active">
-                        <a class="" href="index.html">
+                        <a class="" href="{{route('home.dashboard')}}">
                             <i class="icon_desktop"></i>
                             <span>Y-Painel</span>
                         </a>

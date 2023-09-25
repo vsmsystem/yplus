@@ -13,7 +13,7 @@
                         <div class="col-lg-4 col-sm-4 profile-widget-name">
                             <h4>{{ session('name') }}</h4>
                             <div class="follow-ava">
-                                <img src="{{ session('avatar') }}" alt="">
+                                <img src="{{ session('avatar') ?? asset('img/profile-avatar.jpg') }}" alt="">
                             </div>
                             <h6>Administrador</h6>
                         </div>
