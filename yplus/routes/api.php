@@ -1,11 +1,16 @@
 <?php
 
+use App\Http\Controllers\MercadoController;
 use App\Http\Controllers\TesteController;
+use App\Models\Mercado;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/teste', [TesteController::class, 'getTeste']);
+Route::get('/mercado', function(){
+  return Mercado::all();
+} );
 
 Route::middleware('auth:sanctum')->get('/usuario', function (Request $request) {
   return $request->user();

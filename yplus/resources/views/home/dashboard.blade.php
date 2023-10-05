@@ -326,7 +326,7 @@
 
                         <tbody>
                             <tr class="">
-                                <td>Desntista</td>
+                                <td>Dentista</td>
                                 <td>22/02</td>
                             </tr>
 
