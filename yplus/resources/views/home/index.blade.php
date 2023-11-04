@@ -1,7 +1,7 @@
 @extends('layouts.app-master')
 
 @section('content')
-<div class="bg-light p-5 rounded">
+<div class="p-5 m-50 rounded bgglass1" style="margin-top:20px">
   @auth
   <h1>Dashboard</h1>
 
@@ -27,8 +27,14 @@
   @endauth
 
   @guest
-  <h1>Homepage</h1>
-  <p class="lead">Your viewing the home page. Please login to view the restricted data. (0.0.18)</p>
+  <h1 style="color:#ddd"></h1>
+  <p class="lead" style="color:#ddd;">Olá! Ainda não tem nada de tão interessante por aqui, esté é um projetinho que temos executado nas horas vagas para praticar alguns conceitos de desenvolvimento de software, e a principio está substintuindo nossas planilhas de gerenciamento financeiro.</p>
+  <p class="lead" style="color:#ddd;">(0.0.19)</p>
+
+  
   @endguest
 </div>
+
+
+
 @endsection
