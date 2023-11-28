@@ -481,7 +481,7 @@
                         <ul class="sub">
                             <li><a class="" href="general.html">Contas a pagar</a></li>
                             <li><a class="" href="buttons.html">Contas a receber</a></li>
-                            <li><a class="" href="sliders.html">+Despesa</a></li>
+                            <li><a class="" href="{{route('financas.index')}}">+Despesa</a></li>
                             <li><a class="" href="font_awesome.html">+Receita</a></li>
                             <li><a class="" href="elegant-icon-font.html">Fatura cartão</a></li>
                             <li><a class="" href="grids.html">Gerenciar</a></li>

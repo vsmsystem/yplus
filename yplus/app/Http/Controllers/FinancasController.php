@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Mercado;
+use App\Models\Financas;
 use Illuminate\Support\Facades\Auth;
 
-class MercadoController extends Controller
+class FinancasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class MercadoController extends Controller
     public function index()
     {
         //
-        $itens = Mercado::all();
-        return view('mercado.index', compact('itens'));
+        $itens = Financas::all();
+        return view('financas.index', compact('itens'));
     }
 
     /**
@@ -27,7 +27,7 @@ class MercadoController extends Controller
      */
     public function create()
     {
-        return view('mercado.create');
+        return view('financas.create');
     }
 
     /**
@@ -38,19 +38,21 @@ class MercadoController extends Controller
      */
     public function store(Request $request)
     {
-
+        
             // Obter o ID do usuário autenticado
             $userId = Auth::id();
+            
             // Define as regras de validação
             $rules = [
-                'nome' => 'required', // O campo 'nome' é obrigatório
-                'qtd' => 'required|integer|min:1', // O campo 'qtd' é obrigatório e deve ser um número inteiro maior ou igual a 1
-                'marca' => 'nullable', // O campo 'marca' é opcional
+                'date' => 'date_format:d/m/Y', // O campo data da compra deve estar no formato dd/mm/aaaa
+                'amount' => 'required|integer|min:1', // O campo 'qtd' é obrigatório e deve ser um número inteiro maior ou igual a 1
+                'info' => 'nullable', // O campo 'marca' é opcional
             ];
         
             // Mensagens de erro personalizadas (opcional)
             $messages = [
-                'qtd.min' => 'A quantidade deve ser no mínimo 1.',
+                'amount.min' => 'O valor deve ser no mínimo 1.',
+                'date.date_format' => 'O campo data da compra deve estar no formato dd/mm/aaaa',
             ];
         
             // Valide os dados do formulário com as regras definidas
@@ -58,16 +60,16 @@ class MercadoController extends Controller
         
             // Se a validação for bem-sucedida, você pode prosseguir com a inserção no banco de dados
             // Por exemplo:
-
             
-            mercado::create([
-                'nome' => $request->input('nome'),
-                'quantidade' => $request->input('qtd'),
-                'marca' => $request->input('marca'),
+            
+            financas::create([
+                'issue_date' => $request->input('issue_date'),
+                'amount' => $request->input('amount'),
+                'additional_info' => $request->input('additional_info'),
                 'id_user' => $userId,
             ]);
         
-        return redirect()->route('mercado.index')->with('success', 'Item adicionado com sucesso.');
+        return redirect()->route('financas.index')->with('success', 'Item adicionado com sucesso.');
     }
 
     /**
@@ -89,12 +91,12 @@ class MercadoController extends Controller
      */
     public function edit($id)
     {
-        $item = Mercado::find($id);
+        $item = Financas::find($id);
         if (!$item) {
-            return redirect()->route('mercado.index')->with('error', 'Item não encontrado.');
+            return redirect()->route('financas.index')->with('error', 'Item não encontrado.');
         }
     
-        return view('mercado.edit', ['item' => $item]);
+        return view('financas.edit', ['item' => $item]);
     }
 
     /**
@@ -106,18 +108,18 @@ class MercadoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = Mercado::find($id);
+        $item = Financas::find($id);
 
         if(!$item){
-            return redirect()->route('mercado.index')->with('error', 'Item não encontrado.');
+            return redirect()->route('financas.index')->with('error', 'Item não encontrado.');
         }
         //Atualizando campos do item
-        $item->nome = $request->input('nome');
-        $item->quantidade = $request->input('qtd');
-        $item->marca = $request->input('marca');
+        $item->issue_date = $request->input('date');
+        $item->amount = $request->input('amount');
+        $item->additional_info = $request->input('info');
 
         $item->save();
-        return redirect()->route('mercado.index')->with('success','Item atualizado com sucesso!');
+        return redirect()->route('financas.index')->with('success','Item atualizado com sucesso!');
     }
 
     /**
@@ -128,11 +130,11 @@ class MercadoController extends Controller
      */
     public function delete($id)
     {
-       $item = Mercado::find($id);
+       $item = Financas::find($id);
        if (!$item){
         return redirect()->back()->with('error', 'Item não encontrado');
        }
        $item->delete();
-       return redirect()->route('mercado.index')->with('success', 'Item removido com sucesso.');
+       return redirect()->route('financas.index')->with('success', 'Item removido com sucesso.');
     }
 }

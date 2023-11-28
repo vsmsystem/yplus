@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MercadoController;
+use App\Http\Controllers\FinancasController;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
@@ -41,11 +42,19 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::get('/dashboard', 'HomeController@dashboard')->name('home.dashboard');
         Route::resource('/produto', 'ProdutoController');
         Route::get('/carros', function(){return view("home.yteste");} )->name('carros');
+
         Route::get('/mercado', [MercadoController::class, "index"] )->name('mercado.index');
         Route::get('/mercado/create', [MercadoController::class, "create"] )->name('mercado.create');
         Route::post('/mercado/store', [MercadoController::class, "store"] )->name('mercado.store');
         Route::delete('/mercado/delete/{id}', [MercadoController::class,"delete"] )->name('mercado.delete');
         Route::put('/mercado/edit/{id}', [MercadoController::class,"edit"] )->name('mercado.edit');
         Route::put('/mercado/update/{id}', [MercadoController::class,"update"] )->name('mercado.update');
+
+        Route::get('/financas', [FinancasController::class, "index"] )->name('financas.index');
+        Route::get('/financas/create', [FinancasController::class, "create"] )->name('financas.create');
+        Route::post('/financas/store', [FinancasController::class, "store"] )->name('financas.store');
+        Route::delete('/financas/delete/{id}', [FinancasController::class,"delete"] )->name('financas.delete');
+        Route::put('/financas/edit/{id}', [FinancasController::class,"edit"] )->name('financas.edit');
+        Route::put('/financas/update/{id}', [FinancasController::class,"update"] )->name('financas.update');
     });
 });
