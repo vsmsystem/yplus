@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Mercado;
+use Illuminate\Support\Facades\Auth;
 
 class MercadoController extends Controller
 {
@@ -37,6 +38,9 @@ class MercadoController extends Controller
      */
     public function store(Request $request)
     {
+
+            // Obter o ID do usuário autenticado
+            $userId = Auth::id();
             // Define as regras de validação
             $rules = [
                 'nome' => 'required', // O campo 'nome' é obrigatório
@@ -54,10 +58,13 @@ class MercadoController extends Controller
         
             // Se a validação for bem-sucedida, você pode prosseguir com a inserção no banco de dados
             // Por exemplo:
+
+            
             mercado::create([
                 'nome' => $request->input('nome'),
                 'quantidade' => $request->input('qtd'),
                 'marca' => $request->input('marca'),
+                'id_user' => $userId,
             ]);
         
         return redirect()->route('mercado.index')->with('success', 'Item adicionado com sucesso.');
