@@ -96,3 +96,17 @@ function initializeJS() {
 jQuery(document).ready(function(){
     initializeJS();
 });
+
+async function getFinancas(token = null){
+    req = await fetch(document.location.origin+"/api/financas", {
+      "headers": {
+        "accept": "application/json",
+        "Authorization": "Bearer " + token ?? document.querySelector("#tkyplus").innerText
+      },
+      "body": null,
+      "method": "GET",
+      "mode": "cors",
+      "credentials": "include"
+    });
+    return await req.json()
+}
