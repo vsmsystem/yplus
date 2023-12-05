@@ -218,6 +218,31 @@
 
     }
   </style>
+<style>
+body{
+	background-color: #adffb4; 
+}
+
+h1{
+	color: black;
+	text-align: center;
+	font-family: Arial, sans-serif;
+	font-size: 48px;
+}
+.corpoDoTexto{
+	color: #88d5d8;
+	text-align: left;
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+}
+.corpoDoTexto2{
+	color: #c6ff69;
+	text-align: left;
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+}
+</style>
 </head>
 
 <body>

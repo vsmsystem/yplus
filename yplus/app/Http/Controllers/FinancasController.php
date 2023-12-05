@@ -137,4 +137,11 @@ class FinancasController extends Controller
        $item->delete();
        return redirect()->route('financas.index')->with('success', 'Item removido com sucesso.');
     }
+
+
+    public function despesas()
+    {
+        $itens = Financas::orderBy('id','desc')->get();
+        return view('financas.despesas', compact('itens'));
+    }
 }

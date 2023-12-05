@@ -41,6 +41,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::get('/yteste', 'HomeController@yteste')->name('home.yteste');
         Route::get('/dashboard', 'HomeController@dashboard')->name('home.dashboard');
         Route::resource('/produto', 'ProdutoController');
+        Route::get('/financas/despesas', 'FinancasController@despesas')->name('financas.despesas');
         Route::get('/carros', function(){return view("home.yteste");} )->name('carros');
 
         Route::get('/mercado', [MercadoController::class, "index"] )->name('mercado.index');
