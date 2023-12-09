@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Mercado;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class MercadoController extends Controller
 {
@@ -15,15 +16,13 @@ class MercadoController extends Controller
      */
     public function index()
     {
-        //
-        
         $itens = Mercado::where( function($query){
-            $groupId = 99;
             $query-> where('id_user', auth()->user()->id)
-                ->orWhere('id_group', $groupId);
+            ->orWhereIn('id_group', auth()->user()->groups->pluck('id')->toArray());
         })
         ->whereNull('deleted_at')
         ->get();
+
         return view('mercado.index', compact('itens'));
     }
 
