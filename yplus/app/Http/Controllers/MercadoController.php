@@ -16,7 +16,14 @@ class MercadoController extends Controller
     public function index()
     {
         //
-        $itens = Mercado::all();
+        
+        $itens = Mercado::where( function($query){
+            $groupId = 99;
+            $query-> where('id_user', auth()->user()->id)
+                ->orWhere('id_group', $groupId);
+        })
+        ->whereNull('deleted_at')
+        ->get();
         return view('mercado.index', compact('itens'));
     }
 
@@ -128,11 +135,15 @@ class MercadoController extends Controller
      */
     public function delete($id)
     {
-       $item = Mercado::find($id);
-       if (!$item){
-        return redirect()->back()->with('error', 'Item não encontrado');
-       }
-       $item->delete();
-       return redirect()->route('mercado.index')->with('success', 'Item removido com sucesso.');
+        $item = Mercado::find($id);
+
+        if(!$item){
+            return redirect()->route('mercado.index')->with('error', 'Item não encontrado.');
+        }
+        //Atualizando campos do item
+        $item->deleted_at = date('Y-m-d H:i:s');
+
+        $item->save();
+        return redirect()->route('mercado.index')->with('success','Item deletado com sucesso!');
     }
 }

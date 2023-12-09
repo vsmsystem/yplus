@@ -13,7 +13,11 @@ Route::middleware('auth:sanctum')->group(function () {
   Route::get('/financas', [FinancasApiController::class, "index"] )->name('financas.index');
   Route::get('/teste', [TesteController::class, 'getTeste']);
   Route::get('/mercado', function(){
-    return Mercado::all();
+     //dd(auth()->user()->id);
+     $groupId = 99;
+    return Mercado::where('id_user', auth()->user()->id)
+    ->orWhere('id_group', $groupId)
+    ->get();
   } );
 });
 
