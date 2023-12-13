@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->group(function () {
   Route::get('/financas', [FinancasApiController::class, "index"] )->name('financas.index');
+  Route::post('/financas/criartransacao', [FinancasApiController::class, "criartransacao"] )->name('financas.criartransacao');
+
   Route::get('/teste', [TesteController::class, 'getTeste']);
   Route::get('/mercado', function(){
      //dd(auth()->user()->id);

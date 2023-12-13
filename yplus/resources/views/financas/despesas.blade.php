@@ -92,16 +92,16 @@
             <div class="row">
                 <div class="col-lg-3 col-sm-6">
                     <label for="">Descrição</label>
-                    <input id="description" class="form-control" type="text">
+                    <input id="additionalinfo" class="form-control" type="text" name ="additionalinfo">
 
                     <label for="">Valor Total</label>
-                    <input id="amount" class="form-control" type="number">
+                    <input id="amount" class="form-control" type="number" name="amount">
                     
                     <label for="">URL</label>
-                    <input id="url" class="form-control" type="text">
+                    <input id="url" class="form-control" type="text" name="url">
 
                     <label for="">Data</label>
-                    <input id="date" class="form-control" type="datetime-local" value="{{date("Y-m-d H:i")}}">
+                    <input id="date" class="form-control" type="datetime-local" value="{{date("Y-m-d H:i")}}" name="date">
 
                     <br>
                     <button id="salvarDespesa" class="btn btn-primary btn-block">Salvar</button>

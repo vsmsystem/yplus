@@ -119,12 +119,13 @@ async function setFinancas(){
     console.log("setFinancas")
 
     let dataToSend = {
-        "description":document.querySelector("#description").value,
+        "additional_info":document.querySelector("#additionalinfo").value,
         "amount":document.querySelector("#amount").value,
         "url":document.querySelector("#url").value,
         "date":document.querySelector("#date").value
     };
-    
+
+    console.log(dataToSend);
     req = await fetch(document.location.origin+"/api/financas/criartransacao", {
       "headers": {
         "accept": "application/json",
