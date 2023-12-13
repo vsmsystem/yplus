@@ -98,15 +98,44 @@ jQuery(document).ready(function(){
 });
 
 async function getFinancas(token = null){
+    console.log("getFinancas")
     req = await fetch(document.location.origin+"/api/financas", {
       "headers": {
         "accept": "application/json",
-        "Authorization": "Bearer " + token ?? document.querySelector("#tkyplus").innerText
+        "Authorization": "Bearer " + localStorage['tkyplus'] || document.querySelector("#tkyplus").innerText
       },
       "body": null,
       "method": "GET",
       "mode": "cors",
       "credentials": "include"
     });
-    return await req.json()
+
+    let result = await req.json();
+    console.warn(result)
+    return result
+}
+
+async function setFinancas(){
+    console.log("setFinancas")
+
+    let dataToSend = {
+        "description":document.querySelector("#description").value,
+        "amount":document.querySelector("#amount").value,
+        "url":document.querySelector("#url").value,
+        "date":document.querySelector("#date").value
+    };
+    
+    req = await fetch(document.location.origin+"/api/financas/criartransacao", {
+      "headers": {
+        "accept": "application/json",
+        "Authorization": "Bearer " + localStorage['tkyplus'] || document.querySelector("#tkyplus").innerText
+      },
+      "body": JSON.stringify(dataToSend),
+      "method": "POST",
+      "mode": "cors",
+      "credentials": "include"
+    });
+    let result = await req.json();
+    console.warn(result)
+    return result
 }

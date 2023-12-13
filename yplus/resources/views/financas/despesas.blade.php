@@ -105,10 +105,17 @@
 
                     <br>
                     <button id="salvarDespesa" class="btn btn-primary btn-block">Salvar</button>
+                    <button id="listarDespesa" class="btn btn-primary btn-block">Listar</button>
+
                     <script>
-                        document.querySelector("#salvarDespesa").addEventListener("click", e =>{
-                            alert("Aqui vai a requisiçãop que consome a API e salva no banco")
+                        document.querySelector("#salvarDespesa").addEventListener("click", async e =>{
+                            await setFinancas()
                         })
+
+                        document.querySelector("#listarDespesa").addEventListener("click", async e =>{
+                            await getFinancas()
+                        })
+
                     </script>
 
                 </div>

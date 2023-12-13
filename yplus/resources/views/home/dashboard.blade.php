@@ -143,7 +143,7 @@
                                             data-displayPrevious=true data-thickness=".1" value="75"
                                             data-fgColor="#007AFF" data-bgColor="#F7F7F7">
                                         <p>
-                                            <select>
+                                            <select class="form-control">
                                                 <option> Água </option>
                                                 <option>+200 ml</option>
                                                 <option>+300 ml</option>
@@ -158,7 +158,7 @@
                                             data-displayPrevious=true data-thickness=".1" value="25"
                                             data-fgColor="#34AADC" data-bgColor="#F7F7F7">
                                         <p>
-                                            <select>
+                                            <select class="form-control">
                                                 <option> Café </option>
                                                 <option>+200 ml</option>
                                                 <option>+300 ml</option>
@@ -173,7 +173,7 @@
                                             data-displayPrevious=true data-thickness=".1" value="85"
                                             data-fgColor="#FF2D55" data-bgColor="#F7F7F7">
                                         <p>
-                                            <select>
+                                            <select class="form-control">
                                                 <option> Refeição </option>
                                                 <option>Arroz+feijão1</option>
                                                 <option>Arroz+feijão2</option>
@@ -189,7 +189,7 @@
                                             data-displayPrevious=true data-thickness=".1" value="95"
                                             data-fgColor="#34AADC" data-bgColor="#F7F7F7">
                                         <p>
-                                            <select>
+                                            <select class="form-control">
                                                 <option> Exercicio </option>
                                                 <option>Aerobico</option>
                                                 <option>Peito</option>
@@ -206,7 +206,7 @@
                                             data-displayPrevious=true data-thickness=".1" value="65"
                                             data-fgColor="#007AFF" data-bgColor="#F7F7F7">
                                         <p>
-                                            <select>
+                                            <select class="form-control">
                                                 <option> Sono </option>
                                                 <option>12h</option>
                                                 <option>10h</option>
@@ -318,7 +318,12 @@
                 </section>
             </div>
             <div class="col-sm-3">
-                <section class="panel">
+                <x-GroupList></x-GroupList>
+
+
+
+
+                <section class="panel" style="display:none">
                     <header class="panel-heading">
                         Agendamentos
                     </header>
