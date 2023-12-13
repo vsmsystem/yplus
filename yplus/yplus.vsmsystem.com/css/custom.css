@@ -11,7 +11,9 @@
   background-color: #313131cc;
 }
 
-
+.dark .form-control{
+  background-color: #303030;
+}
 
 .dark ul.sidebar-menu li a {
   border-right: 0px solid #D7D7D7;

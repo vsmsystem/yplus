@@ -383,7 +383,7 @@ ul.sidebar-menu li a {
     display: block;
     padding: 15px 0 15px 10px;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 500;
     outline: none;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
@@ -3170,6 +3170,12 @@ ul.inbox-pagination li {
 }
 
 /*profile-widget color bg*/
+.profile-widget-info-yplus {
+    background: rgb(0,172,207);
+    background: linear-gradient(164deg, rgba(0,172,207,1) 0%, rgba(158,0,185,1) 55%);
+    border-radius: 8px;
+}
+
 .profile-widget-info {
     background: #34AADC !important;
 }
