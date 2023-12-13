@@ -33,6 +33,15 @@
     <!-- owl carousel -->
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}" type="text/css">
 
+
+    <link rel="stylesheet" href="{{ asset('css/sweetalert2.min.css') }}" type="text/css"> 
+    <link rel="stylesheet" href="{{ asset('css/sweetalert2dark.css') }}" type="text/css"> 
+    <style>
+        .swal2-popup{
+            border: solid 1px #007bb3;
+        }
+    </style>
+
     <!-- Custom styles -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style-responsive.css') }}" rel="stylesheet" />
@@ -740,6 +749,10 @@
     <script type="text/javascript" src="{{asset('js/jquery-ui-1.9.2.custom.min.js')}}"></script>
     <!-- bootstrap -->
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
+
+    <script src="{{asset('js/sweetalert2.min.js')}}"></script>
+
+
     <!-- nice scroll -->
     <script src="{{asset('js/jquery.scrollTo.min.js')}}"></script>
     <script src="{{asset('js/jquery.nicescroll.js')}}" type="text/javascript"></script>
