@@ -138,5 +138,18 @@ async function setFinancas(){
     });
     let result = await req.json();
     console.warn(result)
+
+    if (result && result.message === 'Transação criada com sucesso') {
+        Swal.fire({
+            title: "Ótimo!",
+            text: "Registro Salvo!",
+            icon: "success"
+          });
+
+          document.querySelector("#additionalinfo").value = "";
+          document.querySelector("#amount").value = "";
+          document.querySelector("#url").value = "";
+    }
+
     return result
 }
