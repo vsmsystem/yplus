@@ -98,6 +98,15 @@ jQuery(document).ready(function(){
 });
 
 async function getFinancas(token = null){
+
+    Swal.fire({
+        title: "<strong>Carregando</strong>",
+        html: `<div style="height:8rem;">
+          <br><i class="fa fa-circle-o-notch fa-spin fa-3x"></i>
+        </div>`,
+        showConfirmButton: false,
+      });
+
     console.log("getFinancas")
     req = await fetch(document.location.origin+"/api/financas", {
       "headers": {
@@ -112,10 +121,27 @@ async function getFinancas(token = null){
 
     let result = await req.json();
     console.warn(result)
+
+    Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Your work has been saved",
+        showConfirmButton: false,
+        timer: 1500
+      });
     return result
 }
 
 async function setFinancas(){
+
+    Swal.fire({
+        title: "<strong>Salvando</strong>",
+        html: `<div style="height:8rem;">
+          <br><i class="fa fa-circle-o-notch fa-spin fa-3x"></i>
+        </div>`,
+        showConfirmButton: false,
+      });
+
     console.log("setFinancas")
 
     let dataToSend = {
