@@ -47,6 +47,19 @@ class FinancasApiController extends Controller
         // Remover vírgulas dos valores numéricos
         $data['totalSomado'] = str_replace(',', '', $data['totalSomado']);
 
+        // Convertendo a data para o formato de banco de dados (datetime)
+        $dataEmissaoFormatted = Carbon::createFromFormat('d/m/Y H:i:s', $data['dataEmissao'])->format('Y-m-d H:i:s');
+        
+        // Verificar se já existe um registro com os mesmos valores
+        $existingTransaction = Financas::where('organization_name', $data['estabelecimento'])
+        ->where('issue_date', $dataEmissaoFormatted)
+        ->where('amount', $data['totalSomado'])
+        ->first();
+
+        if ($existingTransaction) {
+            return response()->json(['message' => 'Item duplicado'], 422);
+        }        
+
         $validator = Validator::make($data, [
             'estabelecimento' => 'required|string',
             'cnpj' => 'required|string',
@@ -65,8 +78,7 @@ class FinancasApiController extends Controller
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 422);
         }
-        // Convertendo a data para o formato de banco de dados (datetime)
-        $dataEmissaoFormatted = Carbon::createFromFormat('d/m/Y H:i:s', $data['dataEmissao'])->toDateTimeString();
+
 
         // Salvar transação principal na tabela financial_transactions
         $transaction = Financas::create([
