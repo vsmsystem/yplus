@@ -10,7 +10,7 @@ class Financas extends Model
     use HasFactory;
 
     protected $table = 'financial_transactions';
-    protected $fillable = [ 
+    protected $fillable = [ 'id',
         'id_user',
         'id_resource',
         'url',
