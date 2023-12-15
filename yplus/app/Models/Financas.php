@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Financas extends Model
 {
     use HasFactory;
+    use SoftDeletes;
+    protected $defaultSoftDeletes = true;
 
     protected $table = 'financial_transactions';
     protected $fillable = [ 'id',

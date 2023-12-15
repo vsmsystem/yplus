@@ -97,6 +97,17 @@ jQuery(document).ready(function(){
     initializeJS();
 });
 
+function getToken(){
+    const token = document.querySelector("#tkyplus").innerText || localStorage['tkyplus'];
+    if (!token){
+        swal.fire({
+            "title":"Algo deu errado"
+        });
+        return false
+    }
+    return token
+}
+
 async function getFinancas(token = null){
 
     Swal.fire({
@@ -111,7 +122,7 @@ async function getFinancas(token = null){
     req = await fetch(document.location.origin+"/api/financas", {
       "headers": {
         "accept": "application/json",
-        "Authorization": "Bearer " + localStorage['tkyplus'] || document.querySelector("#tkyplus").innerText
+        "Authorization": "Bearer " + getToken()
       },
       "body": null,
       "method": "GET",
@@ -125,14 +136,19 @@ async function getFinancas(token = null){
     Swal.fire({
         position: "top-end",
         icon: "success",
-        title: "Your work has been saved",
         showConfirmButton: false,
-        timer: 1500
+        timer: 2500
       });
     return result
 }
 
 async function setFinancas(){
+
+    const token = getToken()
+
+    if(!token){
+        return false
+    }
 
     Swal.fire({
         title: "<strong>Salvando</strong>",
@@ -155,7 +171,7 @@ async function setFinancas(){
     req = await fetch(document.location.origin+"/api/financas/criartransacao", {
       "headers": {
         "accept": "application/json",
-        "Authorization": "Bearer " + localStorage['tkyplus'] || document.querySelector("#tkyplus").innerText
+        "Authorization": "Bearer " + getToken()
       },
       "body": JSON.stringify(dataToSend),
       "method": "POST",

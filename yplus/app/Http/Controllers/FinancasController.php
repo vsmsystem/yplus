@@ -141,7 +141,7 @@ class FinancasController extends Controller
 
     public function despesas()
     {
-        $itens = Financas::orderBy('id','desc')->get();
+        $itens = Financas::where('id_user',auth()->user()->id)->orderBy('id','desc')->get();
         return view('financas.despesas', compact('itens'));
     }
 }

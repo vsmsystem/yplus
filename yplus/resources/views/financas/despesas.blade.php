@@ -192,7 +192,7 @@
                                     @if ($item->url)
                                     {{-- enquanto não travar pelo id do usuario, nao fornecer a url no href --}}
                                     {{-- href='{{$item->url}}' --}}
-                                    <a href='#' target='_blank'> <i class="fa fa-link"></i> </a>
+                                    <a href='{{$item->url}}' target='_blank'> <i class="fa fa-link"></i> </a>
                                     @endif
                                     &nbsp;
                                     <i class="fa fa-trash"></i>

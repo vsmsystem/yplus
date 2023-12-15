@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MercadoController;
 use App\Http\Controllers\FinancasController;
+use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
@@ -57,5 +58,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::delete('/financas/delete/{id}', [FinancasController::class,"delete"] )->name('financas.delete');
         Route::put('/financas/edit/{id}', [FinancasController::class,"edit"] )->name('financas.edit');
         Route::put('/financas/update/{id}', [FinancasController::class,"update"] )->name('financas.update');
+
+        Route::get('/usuario',[UserProfileController::class, 'index'])->name('userProfile.profile');
     });
 });
